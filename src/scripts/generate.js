@@ -1,6 +1,7 @@
 function generateLink() {
     const urlParams = new URLSearchParams(window.location.search);
     const link = urlParams.get('link');
+    alert(`Link: ${link}`);
 
     if (link) {
         // Delay for 4 seconds before navigating to the link
