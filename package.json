@@ -1,0 +1,17 @@
+{
+  "name": "website-project",
+  "version": "1.0.0",
+  "description": "A simple web project that allows users to input a link and navigate to it after a delay.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "netlify build"
+  },
+  "dependencies": {
+    "netlify-cli": "^6.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Generator</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/generate.js" defer></script>
+</head>
+<body>
+    <h1>Link Generator</h1>
+    <p>Your link will be opened after a short delay.</p>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const link = urlParams.get('link');
+
+        if (link) {
+            setTimeout(() => {
+                window.location.href = link;
+            }, 4000);
+        } else {
+            document.body.innerHTML = '<h2>No link provided!</h2>';
+        }
+    </script>
+</body>
+</html>
