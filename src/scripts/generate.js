@@ -6,7 +6,7 @@ function generateLink() {
         // Delay for 4 seconds before navigating to the link
         setTimeout(() => {
             window.location.href = `https://${link}`;
-        }, 5500);
+        }, 5000);
     } else {
         document.body.innerHTML = '<h1>No link provided!</h1>';
     }
