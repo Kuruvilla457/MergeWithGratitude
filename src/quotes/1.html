@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to MR...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://i.pinimg.com/736x/97/81/58/9781589bbd2c1ce31a76b2923ef26540.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        #typing-text {
+            font-size: 2.5rem;
+            color: #020202;
+            font-weight: bold;
+            filter: invert(1) drop-shadow(2px 2px 8px #f1eaea);
+            text-align: center;
+        }   
+    </style>
+</head>
+<body>
+    <p id="typing-text"></p>
+    <script>
+    const text1 = "You didn’t just volunteer to review my MR";
+    const text2 = "You defused a ticking time bomb of bugs. Respect, agent.";
+    let i = 0, j = 0;
+    const speed = 50;
+    function typeWriter() {
+        if (i < text1.length) {
+            document.getElementById("typing-text").innerHTML += text1.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        } else if (j < text2.length) {
+            if (j === 0) {
+                document.getElementById("typing-text").innerHTML += "<br>";
+            }
+            document.getElementById("typing-text").innerHTML += text2.charAt(j);
+            j++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+    typeWriter();
+    </script>
+</body>
+</html>

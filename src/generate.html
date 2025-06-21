@@ -8,8 +8,23 @@
     <script src="scripts/generate.js" defer></script>
 </head>
 <body>
-    <h1>Link Generator</h1>
-    <p>Your link will be opened after a short delay.</p>
+    <iframe id="quoteFrame" style="position:fixed;top:0;left:0;width:100vw;height:100vh;border:none;" allowfullscreen></iframe>
+    <script>
+        // List all your quote HTML files here
+        const quoteFiles = [
+            'quotes/1.html',
+            'quotes/2.html',
+            'quotes/3.html',
+            // Add more files as needed
+        ];
+
+        function getRandomQuote() {
+            const idx = Math.floor(Math.random() * quoteFiles.length);
+            return quoteFiles[idx];
+        }
+
+        document.getElementById('quoteFrame').src = getRandomQuote();
+    </script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const link = urlParams.get('link');

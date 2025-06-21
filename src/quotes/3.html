@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to MR...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://thumbs.dreamstime.com/b/proud-veteran-salutes-symbolizing-honor-service-patriotism-freedom-remembrance-powerful-image-military-gratitude-great-359285661.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        #typing-text {
+            font-size: 2.5rem;
+            color: #020202;
+            font-weight: bold;
+            filter: invert(1) drop-shadow(2px 2px 8px #f1eaea);
+            text-align: center;
+        }   
+    </style>
+</head>
+<body>
+    <p id="typing-text"></p>
+    <script>
+    const lines = [
+        "In a world where time was scarce...",
+        "One dev rose above the chaos to review my MR.",
+        "I salute you, brave soul."
+    ];
+    let line = 0, char = 0;
+    const speed = 50;
+    function typeWriter() {
+        if (line < lines.length) {
+            if (char < lines[line].length) {
+                document.getElementById("typing-text").innerHTML += lines[line].charAt(char);
+                char++;
+                setTimeout(typeWriter, speed);
+            } else {
+                document.getElementById("typing-text").innerHTML += "<br>";
+                line++;
+                char = 0;
+                setTimeout(typeWriter, speed);
+            }
+        }
+    }
+    typeWriter();
+    </script>
+</body>
+</html>

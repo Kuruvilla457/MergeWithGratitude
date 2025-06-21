@@ -12,8 +12,7 @@ function handleGenerateLink() {
         .then(response => {
             if (response.ok) {
                 // Redirect to generate.html with the link as a query parameter
-                alert(`generate.html?link=${encodeURIComponent(linkInput)}`);
-                // window.location.href = `generate.html?link=${encodeURIComponent(linkInput)}`;
+                window.location.href = `generate.html?link=${encodeURIComponent(linkInput)}`;
             } else {
                 alert('Failed to save the link. Please try again.');
             }
