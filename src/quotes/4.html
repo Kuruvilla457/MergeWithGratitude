@@ -12,7 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-image: url('https://i.pinimg.com/736x/97/81/58/9781589bbd2c1ce31a76b2923ef26540.jpg');
+            background-image: url('https://t4.ftcdn.net/jpg/06/15/18/87/360_F_615188710_fi02d1vQ6yI0fErIfRio4RNUaDFcB4AE.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -22,17 +22,18 @@
             font-size: 2.5rem;
             color: #020202;
             font-weight: bold;
-            filter: invert(1) drop-shadow(2px 2px 8px #f1eaea);
+            filter: invert(1) drop-shadow(2px 2px 8px #ea0707);
             text-align: center;
         }
-        .spinner {
+        .loader {
+            margin-top: 30px;
             border: 8px solid #f3f3f3;
-            border-top: 8px solid #333;
+            border-top: 8px solid #222;
             border-radius: 50%;
             width: 60px;
             height: 60px;
             animation: spin 1s linear infinite;
-            margin-bottom: 30px;
+            filter: invert(1);
         }
         @keyframes spin {
             0% { transform: rotate(0deg);}
@@ -41,28 +42,28 @@
     </style>
 </head>
 <body>
-    <div class="spinner" id="spinner"></div>
     <p id="typing-text"></p>
+    <div class="loader"></div>
     <script>
-    const text1 = "You didn’t just volunteer to review my MR";
-    const text2 = "You defused a ticking time bomb of bugs. Respect, agent.";
-    let i = 0, j = 0;
+    const lines = [
+        "Your courage will be remembered",
+        "Especially if you make it out without adding",
+        "a hundred comments"
+    ];
+    let line = 0, char = 0;
     const speed = 50;
     function typeWriter() {
-        if (i < text1.length) {
-            document.getElementById("typing-text").innerHTML += text1.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else if (j < text2.length) {
-            if (j === 0) {
+        if (line < lines.length) {
+            if (char < lines[line].length) {
+                document.getElementById("typing-text").innerHTML += lines[line].charAt(char);
+                char++;
+                setTimeout(typeWriter, speed);
+            } else {
                 document.getElementById("typing-text").innerHTML += "<br>";
+                line++;
+                char = 0;
+                setTimeout(typeWriter, speed);
             }
-            document.getElementById("typing-text").innerHTML += text2.charAt(j);
-            j++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Hide spinner when done
-            document.getElementById("spinner").style.display = "none";
         }
     }
     typeWriter();

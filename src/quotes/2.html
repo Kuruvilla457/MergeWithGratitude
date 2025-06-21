@@ -23,14 +23,35 @@
             font-weight: bold;
             filter: invert(1) drop-shadow(2px 2px 8px #f1eaea);
             text-align: center;
-        }   
+        }
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #222;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 30px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-    <p id="typing-text"></p>
+    <div id="container">
+        <div class="loader" id="loader"></div>
+        <p id="typing-text"></p>
+    </div>
     <script>
     const text1 = "They said reviewing code under pressure was impossible.";
-    const text2 = "You said: challenge accepted.";
+    const text2 = "You said: Challenge accepted.";
     let i = 0, j = 0;
     const speed = 50;
     function typeWriter() {
@@ -45,9 +66,13 @@
             document.getElementById("typing-text").innerHTML += text2.charAt(j);
             j++;
             setTimeout(typeWriter, speed);
+        } else {
+            // Hide loader after typing is done
+            document.getElementById("loader").style.display = "none";
         }
     }
-    typeWriter();
+    // Show loader initially, start typing after short delay
+    setTimeout(typeWriter, 700);
     </script>
 </body>
 </html>
